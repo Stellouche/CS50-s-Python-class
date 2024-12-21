@@ -7,7 +7,7 @@ CS50’s Introduction to Artificial Intelligence with Python
 The Degrees Project is an implementation of a search algorithm to determine the "degrees of separation" between two actors in the Hollywood film industry. Inspired by the "Six Degrees of Kevin Bacon" game, this program finds the shortest path of connections between two actors based on movies they have starred in together.
 
 ## How to Use
-1. Clone the repository to your local machine.
+1. Clone the repository to your local machine or download the Degrees.zip.
 2. Ensure you have Python 3.12 or later installed.
 3. Navigate to the project directory.
 4. Run the following command to execute the program:
