@@ -75,15 +75,6 @@ pip install -r requirements.txt
 - **`utility(board)`**: Assigns a utility value to the board (1, -1, or 0).
 - **`minimax(board)`**: Computes the optimal move for the current player.
 
-## Example
-After running the game, you will see a graphical window like the one below:
-
-```
-Game Over: O wins.
-![image](https://github.com/user-attachments/assets/72e51e08-8373-4dd7-924d-01090035851f)
-Play Again
-```
-
 ## Notes
 - The AI cannot be beaten if it plays optimally.
 - If both players play perfectly, the game will always end in a tie.
