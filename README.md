@@ -296,4 +296,96 @@ If the directory contains the following pages:
 
 The program will analyze these links to compute the importance of each page.
 
+# Heredity AI Project
+
+## Description
+This project implements a Bayesian Network to analyze genetic inheritance and assess the likelihood that a person possesses a specific genetic trait. The model uses probabilistic reasoning to infer distributions over the number of gene copies and whether a trait is expressed for each individual in a dataset.
+
+## How to Use
+
+### Prerequisites
+- Python 3.8 or later
+
+### Running the Program
+1. Clone the repository to your local machine or download the zip file.
+2. Prepare or select a dataset in CSV format that specifies individuals, their parents, and observed traits.
+3. Run the program with the following command:
+   ```bash
+   python heredity.py data/family0.csv
+   ```
+   Replace `data/family0.csv` with the path to your dataset.
+
+### Output
+The program calculates and displays the probabilities for each individual:
+- The likelihood of having 0, 1, or 2 copies of the gene.
+- The likelihood of exhibiting the trait (True/False).
+
+Example:
+```plaintext
+Harry:
+  Gene:
+    2: 0.0092
+    1: 0.4557
+    0: 0.5351
+  Trait:
+    True: 0.2665
+    False: 0.7335
+James:
+  Gene:
+    2: 0.1976
+    1: 0.5106
+    0: 0.2918
+  Trait:
+    True: 1.0000
+    False: 0.0000
+```
+
+## Features
+- **Bayesian Network**: Models genetic inheritance with conditional probabilities.
+- **Joint Probability**:
+  - Computes the likelihood of a specific configuration of genes and traits.
+- **Updating Probabilities**:
+  - Adjusts the probability distributions for each individual using new joint probabilities.
+- **Normalization**:
+  - Ensures all probability distributions sum to 1.
+
+## Core Functions
+
+### `joint_probability`
+- **Input**: Dataset, gene sets, and observed traits.
+- **Output**: The joint probability of the specified genetic and trait configuration.
+- **Details**:
+  - Accounts for inheritance probabilities based on parents' genes.
+  - Incorporates mutation probabilities and trait likelihoods.
+
+### `update`
+- **Input**: Probabilities dictionary, gene sets, trait sets, and joint probability.
+- **Output**: Updates the probabilities dictionary.
+- **Details**:
+  - Adds the joint probability to the gene and trait distributions for each individual.
+
+### `normalize`
+- **Input**: Probabilities dictionary.
+- **Output**: Normalized probabilities.
+- **Details**:
+  - Adjusts probabilities so that distributions sum to 1, maintaining relative proportions.
+
+## Dataset Format
+The CSV file should have the following columns:
+- **name**: Name of the individual.
+- **mother**: Name of the individual’s mother (or blank if unknown).
+- **father**: Name of the individual’s father (or blank if unknown).
+- **trait**: `1` if the trait is present, `0` if absent, or blank if unknown.
+
+Example:
+```csv
+name,mother,father,trait
+Harry,Lily,James,
+James,,,1
+Lily,,,0
+```
+
+## Notes
+- The algorithm models gene inheritance probabilities based on parental genes and mutation rates.
+- The program handles missing trait data by considering all possibilities and normalizing results.
 
