@@ -32,3 +32,60 @@ Name: Jennifer Lawrence
 ```
 ## Conclusion
 The Degrees Project provides a concrete result by identifying the shortest chain of connections between two actors through shared movies. This result demonstrates how interconnected the film industry is and how search algorithms efficiently uncover these paths, providing valuable insights into relationships within the dataset.
+# Tic-Tac-Toe AI Project
+
+## Description
+This project implements an optimal AI player for the game Tic-Tac-Toe using the Minimax algorithm. The AI is designed to make the best possible moves at every stage of the game. You can play against the AI via a graphical interface powered by Pygame.
+
+## How to Use
+
+### Prerequisites
+- Python 3.8 or later
+- Pygame library
+
+Install the required dependencies by running:
+```bash
+pip install -r requirements.txt
+```
+
+### Running the Game
+1. Clone the repository to your local machine or download the zip file.
+2. Navigate to the project directory and install the requirement.txt.
+3. Run the following command to start the game:
+   ```bash
+   python runner.py
+   ```
+
+### Playing the Game
+- When the game starts, choose whether to play as `X` or `O`.
+- The game alternates turns between the player and the AI.
+- The AI is designed to play optimally, ensuring that it never loses when both players play perfectly.
+
+## Features
+- Fully implemented Minimax algorithm for optimal AI decision-making.
+- Graphical interface built with Pygame for an interactive gaming experience.
+- Handles all game scenarios, including ties, wins, and valid/invalid moves.
+
+## Core Functions
+- **`player(board)`**: Determines which player’s turn it is.
+- **`actions(board)`**: Returns all possible moves on the board.
+- **`result(board, action)`**: Generates a new board state after a move.
+- **`winner(board)`**: Determines if there is a winner.
+- **`terminal(board)`**: Checks if the game is over.
+- **`utility(board)`**: Assigns a utility value to the board (1, -1, or 0).
+- **`minimax(board)`**: Computes the optimal move for the current player.
+
+## Example
+After running the game, you will see a graphical window like the one below:
+
+```
+Game Over: O wins.
+![image](https://github.com/user-attachments/assets/72e51e08-8373-4dd7-924d-01090035851f)
+Play Again
+```
+
+## Notes
+- The AI cannot be beaten if it plays optimally.
+- If both players play perfectly, the game will always end in a tie.
+
+
