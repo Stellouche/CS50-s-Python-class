@@ -222,5 +222,78 @@ When running `runner.py`, the game will display the Minesweeper board, and the A
 ## Notes
 - The AI may still lose if it must guess randomly.
 - The project demonstrates the use of logical inference in a game environment.
+# PageRank AI Project
+
+## Description
+This project implements the PageRank algorithm, which ranks web pages by importance. The algorithm computes the probability that a random surfer ends up on each page, either by following links from the current page or by jumping to a random page in the corpus.
+
+Two methods are used to calculate PageRank:
+1. **Sampling Method**: Simulates a random surfer visiting pages.
+2. **Iterative Method**: Uses a mathematical formula to iteratively compute PageRank until convergence.
+
+## How to Use
+
+### Prerequisites
+- Python 3.8 or later
+
+### Running the Program
+1. Clone the repository to your local machine or download the zip file.
+2. Ensure the corpus of web pages (HTML files) is organized in a directory.
+3. Run the following command:
+   ```bash
+   python pagerank.py corpus_directory
+   ```
+   Replace `corpus_directory` with the path to the directory containing the web pages.
+
+### Output
+The program will compute and display the PageRank results using both the sampling and iterative methods. Example output:
+```plaintext
+PageRank Results from Sampling (n = 10000)
+  1.html: 0.2223
+  2.html: 0.4303
+  3.html: 0.2145
+  4.html: 0.1329
+PageRank Results from Iteration
+  1.html: 0.2202
+  2.html: 0.4289
+  3.html: 0.2202
+  4.html: 0.1307
+```
+
+## Features
+- **Random Surfer Model**: Simulates random page visits based on the damping factor.
+- **Iterative Formula**: Computes PageRank until convergence, ensuring stable results.
+- Handles pages with no outgoing links by distributing the probability evenly across all pages.
+
+## Core Functions
+
+### `transition_model`
+- **Input**: Corpus, current page, damping factor.
+- **Output**: A probability distribution over which page to visit next.
+- Handles cases where a page has no outgoing links by treating it as linking to all pages.
+
+### `sample_pagerank`
+- **Input**: Corpus, damping factor, number of samples.
+- **Output**: Estimated PageRank values for each page based on sampling.
+- Simulates a random surfer by repeatedly applying the transition model.
+
+### `iterate_pagerank`
+- **Input**: Corpus, damping factor.
+- **Output**: PageRank values for each page based on iterative computation.
+- Repeatedly updates PageRank values until they converge within a threshold of 0.001.
+
+## Notes
+- The damping factor (default: 0.85) balances between following links and jumping to random pages.
+- Results from both methods should closely align for the same corpus.
+- The PageRank values for all pages sum to 1.
+
+## Example Corpus
+If the directory contains the following pages:
+- `1.html` links to `2.html` and `3.html`
+- `2.html` links to `3.html`
+- `3.html` links to `1.html` and `4.html`
+- `4.html` has no outgoing links
+
+The program will analyze these links to compute the importance of each page.
 
 
