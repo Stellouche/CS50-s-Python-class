@@ -78,5 +78,76 @@ pip install -r requirements.txt
 ## Notes
 - The AI cannot be beaten if it plays optimally.
 - If both players play perfectly, the game will always end in a tie.
+  
+# Knights and Knaves AI Project
+
+## Description
+This project solves logical puzzles inspired by Raymond Smullyan's "Knights and Knaves." Each character in the puzzles is either a knight, who always tells the truth, or a knave, who always lies. The goal is to determine whether each character is a knight or a knave based on their statements.
+
+The solution is implemented using propositional logic, where an AI uses model-checking to deduce the truth about each character.
+
+## How to Use
+
+### Prerequisites
+- Python 3.8 or later
+
+### Running the Program
+1. Clone the repository to your local machine or download the zip file.
+2. Navigate to the project directory.
+3. Run the following command:
+   ```bash
+   python puzzle.py
+   ```
+
+### Output
+The program will evaluate each puzzle and print the status of each character (whether they are a knight or a knave). For example:
+```plaintext
+Puzzle 0
+    A is a Knave
+Puzzle 1
+    A is a Knave
+    B is a Knight
+Puzzle 2
+    A is a Knight
+    B is a Knave
+Puzzle 3
+    A is a Knight
+    B is a Knave
+    C is a Knight
+```
+
+## Puzzles Solved
+
+### Puzzle 0
+- **Setup**: A says, "I am both a knight and a knave."
+- **Logic**: This statement is inherently contradictory, so A must be a knave.
+
+### Puzzle 1
+- **Setup**: A says, "We are both knaves." B says nothing.
+- **Logic**: If A were a knight, their statement would contradict the rules of the puzzle. Therefore, A is a knave, and B must be a knight.
+
+### Puzzle 2
+- **Setup**: 
+  - A says, "We are the same kind."
+  - B says, "We are of different kinds."
+- **Logic**: The statements are mutually exclusive. If A is a knight, their statement is true, and B is also a knight. Otherwise, A is a knave, and B is a knight.
+
+### Puzzle 3
+- **Setup**:
+  - A says either "I am a knight" or "I am a knave," but you don't know which.
+  - B says, "A said 'I am a knave.'"
+  - B says, "C is a knave."
+  - C says, "A is a knight."
+- **Logic**: The statements interact to determine that A is a knight, B is a knave, and C is a knight.
+
+## Implementation Details
+- **Propositional Logic**: Statements are represented as logical formulas using classes like `And`, `Or`, `Not`, `Implication`, and `Biconditional`.
+- **Model Checking**: The program uses a model-checking algorithm to evaluate whether the knowledge base entails the query.
+- **Logic.py**: Contains the implementation of propositional logic and the model-checking algorithm.
+- **Puzzle.py**: Defines the puzzles and their corresponding knowledge bases.
+
+## Notes
+- The AI deduces solutions based on logical consistency; it does not "guess."
+- You can extend the project by adding more puzzles with new characters and statements.
 
 
