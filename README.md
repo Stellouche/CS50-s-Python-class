@@ -150,4 +150,77 @@ Puzzle 3
 - The AI deduces solutions based on logical consistency; it does not "guess."
 - You can extend the project by adding more puzzles with new characters and statements.
 
+# Minesweeper AI Project
+
+## Description
+This project implements an AI to play Minesweeper using logical inference. The AI uses a knowledge-based approach to infer the location of mines and make safe moves, aiming to win the game by marking all mines correctly.
+
+## How to Use
+
+### Prerequisites
+- Python 3.8 or later
+- Pygame library
+
+Install the required dependencies by running:
+```bash
+pip install -r requirements.txt
+```
+
+### Running the Game
+1. Clone the repository to your local machine or download the zip file.
+2. Navigate to the project directory.
+3. Run the following command to start the game:
+   ```bash
+   python runner.py
+   ```
+
+### Playing the Game
+- The game board consists of a grid of cells, some of which contain hidden mines.
+- Left-click a cell to reveal it.
+- Right-click a cell to flag it as a mine.
+- Use the "AI Move" button to let the AI make a move based on its knowledge base.
+- Use the "Reset" button to restart the game.
+
+## Features
+- **Knowledge Representation**: The AI uses logical sentences to represent knowledge about the Minesweeper board.
+- **Inference**:
+  - Marks cells as safe or mines based on knowledge.
+  - Infers new sentences by combining existing knowledge.
+  - Simplifies knowledge by removing known cells.
+- **Decision Making**:
+  - Chooses safe moves when available.
+  - Makes random moves if no safe moves are known.
+
+## Core Classes and Methods
+
+### `Sentence` Class
+- **`known_mines`**: Identifies cells that are certainly mines.
+- **`known_safes`**: Identifies cells that are certainly safe.
+- **`mark_mine(cell)`**: Updates the sentence when a cell is confirmed as a mine.
+- **`mark_safe(cell)`**: Updates the sentence when a cell is confirmed as safe.
+
+### `MinesweeperAI` Class
+- **`add_knowledge(cell, count)`**:
+  - Marks a cell as safe.
+  - Adds a new sentence to the knowledge base based on the cell’s neighbors and mine count.
+  - Updates knowledge to deduce new safe cells and mines.
+- **`make_safe_move()`**: Returns a cell known to be safe.
+- **`make_random_move()`**: Chooses a random cell that is not yet known to be a mine or already clicked.
+- **`update_knowledge()`**: Simplifies and infers new sentences from the knowledge base.
+
+## Example Output
+When running `runner.py`, the game will display the Minesweeper board, and the AI will make logical moves. Example scenarios:
+- If a safe move is available:
+  ```plaintext
+  AI making safe move.
+  ```
+- If no safe moves are known:
+  ```plaintext
+  No known safe moves, AI making random move.
+  ```
+
+## Notes
+- The AI may still lose if it must guess randomly.
+- The project demonstrates the use of logical inference in a game environment.
+
 
